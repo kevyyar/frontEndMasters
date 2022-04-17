@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const ANIMALS = ['dog', 'cat', 'pig']
 const BREEDS = []
@@ -7,6 +7,17 @@ const SearchParams = () => {
   const [location, setLocation] = useState('')
   const [animal, setAnimal] = useState('')
   const [breed, setBreed] = useState('')
+
+  useEffect(() => {
+    requestPets()
+  }, [])
+
+  const requestPets = async () => {
+    const res = await fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`)
+    const json = await res.json()
+
+    console.log(json.pets)
+  }
 
   const handleLocationChange = (e) => {
     setLocation(e.target.value)
