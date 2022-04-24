@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import SearchParams from './SearchParams'
+import SearchParams from './components/SearchParams'
 
 const App = () => {
   return (
