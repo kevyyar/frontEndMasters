@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 
+// cache the results of the API call
 const localCache = {}
 
 export const useBreedList = (animal) => {
